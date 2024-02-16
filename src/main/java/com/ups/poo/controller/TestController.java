@@ -15,7 +15,7 @@ public class TestController {
 
     @GetMapping("/hello")
     public String hello(@RequestParam String name,
-                        @RequestParam String lastname,
+                        @RequestParam(required = false) String lastname,
                         @RequestParam(required = false) Integer age){
         String message = "This is my first SpringBootProject!" +
                 ", and my name is: "+ name + " " + lastname;
