@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>List of Authors</title>
+    <title>List of Books</title>
 
     <style>
         body{
@@ -24,19 +24,25 @@
           font-weight: bold;
           background-color: white;
         }
+
+        tr:hover{
+         box-shadow: 0px 2px 18px 0px rgba(0,0,0,0.5); cursor:pointer;
+        }
     </style>
 </head>
 <body>
-    <h1>Authors List</h1>
+    <h1>Books List</h1>
     <br>
     <table width="60%">
         <tr>
-            <th>Firstname</th>
-            <th>Lastname</th>
+            <th>Title</th>
+            <th>Editorial</th>
+            <th>Author</th>
         </tr>
-        <tr th:each="author: ${authors}">
-            <th th:text="${author.name}"></th>
-            <th th:text="${author.lastName}"></th>
+        <tr th:each="bo: ${bookList}">
+            <th th:text="${bo.title}"></th>
+            <th th:text="${bo.editorial}"></th>
+            <th th:text="${bo.authorDTO.name} + ' ' + ${bo.authorDTO.lastName}"></th>
         </tr>
     </table>
 </body>
